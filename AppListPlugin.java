@@ -16,8 +16,6 @@ public class AppListPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
             if (ACTION_GET_APP_LIST.equals(action)) { 
-                JSONObject arg_object = args.getJSONObject(0);
-
                 PackageManager packageManager = getPackageManager();
                 List<ApplicationInfo> applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
 
