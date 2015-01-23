@@ -42,7 +42,7 @@ public class AppListPlugin extends CordovaPlugin {
             callbackContext.error("Invalid action");
             return false;
         } catch(Exception e) {
-            System.err.println("Exception: " + e.getMessage());
+            Log.w(WARN,"Exception: " + e.getMessage());
             callbackContext.error(e.getMessage());
             return false;
         } 
