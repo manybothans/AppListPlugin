@@ -1,4 +1,4 @@
-package com.appstars.applist;
+package org.apache.cordova;
 
 import android.util.Log
 import java.util.List;
