@@ -21,6 +21,8 @@ public class AppListPlugin extends CordovaPlugin {
                 PackageManager packageManager = getPackageManager();
                 List<ApplicationInfo> list = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
 
+                Log.w(WARN,list);
+                
                 JSONArray json = JSONArray.fromObject(list);
                 callbackContext.success(json);
             }
