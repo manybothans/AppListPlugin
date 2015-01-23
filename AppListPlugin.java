@@ -1,5 +1,6 @@
 package com.appstars.applist;
- 
+
+import android.util.Log
 import java.util.List;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
@@ -25,6 +26,7 @@ public class AppListPlugin extends CordovaPlugin {
                 for (ApplicationInfo appInfo : applist) {
                     if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 1) {
                         // Installed by user
+                        Log.w(WARN,appInfo.packageName)
                         JSONObject appDetailsJson = new JSONObject();
                         appDetailsJson.put("processName", appInfo.processName);
                         appDetailsJson.put("packageName", appInfo.packageName);
