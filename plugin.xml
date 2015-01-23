@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+            id="com.appstars.applist" version="0.0.1">
+        <name>AppListPlugin</name>
+        <description>Get list of user-installed apps</description>
+        <license>Apache 2.0</license>
+        <keywords>cordova,device</keywords>
+        <js-module src="www/applist.js" name="applist">
+            <clobbers target="applist" />
+        </js-module>
+        <platform name="android">
+            <config-file target="config.xml" parent="/*">
+                <feature name="AppListPlugin">
+                    <param name="android-package" value="com.appstars.applist.AppListPlugin"/>
+                </feature>
+            </config-file>
+            <source-file src="AppListPlugin.java" target-dir="com/appstars/applist" />
+        </platform>
+    </plugin>
