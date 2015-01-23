@@ -1,4 +1,4 @@
-var appListPlugin = {
+var AppListPlugin = {
     getAppList: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
