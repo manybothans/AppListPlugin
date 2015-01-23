@@ -19,12 +19,25 @@ public class AppListPlugin extends CordovaPlugin {
                 JSONObject arg_object = args.getJSONObject(0);
 
                 PackageManager packageManager = getPackageManager();
-                List<ApplicationInfo> list = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+                List<ApplicationInfo> applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
 
-                Log.w(WARN,list);
-                
-                JSONArray json = JSONArray.fromObject(list);
-                callbackContext.success(json);
+                JSONObject responseDetailsJson = new JSONObject();
+                JSONArray jsonArray = new JSONArray();
+
+                for (ApplicationInfo appInfo : applist) {
+                    if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 1) {
+                        // Installed by user
+                        JSONObject appDetailsJson = new JSONObject();
+                        appDetailsJson.put("processName", appInfo.processName);
+                        appDetailsJson.put("packageName", appInfo.packageName);
+
+                        jsonArray.add(appDetailsJson);
+                    } else {
+                        // System application
+                    }
+                }
+                responseDetailsJson.put("apps", jsonArray);
+                callbackContext.success(responseDetailsJson);
             }
             callbackContext.error("Invalid action");
             return false;
