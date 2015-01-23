@@ -1,4 +1,4 @@
-package org.apache.cordova;
+package org.apache.cordova.applist;
 
 import android.util.Log
 import java.util.List;
