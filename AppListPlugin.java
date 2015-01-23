@@ -1,12 +1,11 @@
 package com.appstars.applist;
  
+import java.util.List;
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
-import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
