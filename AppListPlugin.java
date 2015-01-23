@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
 public class AppListPlugin extends CordovaPlugin {
