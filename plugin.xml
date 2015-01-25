@@ -25,5 +25,14 @@
             </config-file>
             <source-file src="src/android/AppListPlugin.java" target-dir="src/com/phonegap/plugins/plugin/" />
         </platform>
+        <platform name="ios">
+            <config-file target="config.xml" parent="/widget">
+                <feature name="AppListPlugin">
+                    <param name="ios-package" value="AAAppListPlugin" />
+                </feature>
+            </config-file>
+            <header-file src="src/ios/AAAppListPlugin.h" target-dir="AppListPlugin" />
+            <source-file src="src/ios/AAAppListPlugin.m" target-dir="AppListPlugin" />
+        </platform>
 
     </plugin>
