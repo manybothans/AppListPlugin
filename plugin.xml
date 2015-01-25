@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-            id="com.phonegap.plugins.applist" version="0.0.1">
+            id="com.phonegap.plugins.applist"
+            version="0.0.1">
+        
         <name>AppListPlugin</name>
+        
         <description>Get list of user-installed apps</description>
+        
         <license>Apache 2.0</license>
+        
         <keywords>cordova,device</keywords>
+        
         <asset src="www/applist.js" target="lib/hello.js"/>
+        
         <js-module src="www/applist.js" name="applist">
             <clobbers target="applist" />
         </js-module>
+        
         <platform name="android">
             <config-file target="res/xml/config.xml" parent="/*">
                 <feature name="AppListPlugin">
@@ -17,4 +25,5 @@
             </config-file>
             <source-file src="src/android/AppListPlugin.java" target-dir="src/com/phonegap/plugins/plugin/" />
         </platform>
+
     </plugin>
