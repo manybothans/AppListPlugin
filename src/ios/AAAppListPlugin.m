@@ -35,14 +35,14 @@
                                resultWithStatus:CDVCommandStatus_OK
                                messageAsString:[[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding]];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        [self success:JSONData callbackId:callbackId];
+        [self success:result callbackId:callbackId];
     } withFailure:^(NSError *error) {
         NSLog(@"Error: %@", error.localizedDescription);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         CDVPluginResult* result = [CDVPluginResult
                                resultWithStatus:CDVCommandStatus_OK
                                messageAsString:error.localizedDescription];
-        [self error:error.localizedDescription callbackId:callbackId];
+        [self error:result callbackId:callbackId];
     }];
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
