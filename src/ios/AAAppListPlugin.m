@@ -18,12 +18,7 @@
 {
 
     NSString* callbackId = [command callbackId];
-    NSString* name = [[command arguments] objectAtIndex:0];
-    NSString* msg = [NSString stringWithFormat: @"Hello, %@", name];
 
-    CDVPluginResult* result = [CDVPluginResult
-                               resultWithStatus:CDVCommandStatus_OK
-                               messageAsString:msg];
 
 
     [self detectAppIdsWithIncremental:^(NSArray *appDictionaries) {
@@ -36,11 +31,17 @@
         NSData * JSONData = [NSJSONSerialization dataWithJSONObject:appDictionaries
                                                     options:0
                                                       error:nil];
+        CDVPluginResult* result = [CDVPluginResult
+                               resultWithStatus:CDVCommandStatus_OK
+                               messageAsString:[[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding]];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [self success:JSONData callbackId:callbackId];
     } withFailure:^(NSError *error) {
         NSLog(@"Error: %@", error.localizedDescription);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        CDVPluginResult* result = [CDVPluginResult
+                               resultWithStatus:CDVCommandStatus_OK
+                               messageAsString:error.localizedDescription];
         [self error:error.localizedDescription callbackId:callbackId];
     }];
 
