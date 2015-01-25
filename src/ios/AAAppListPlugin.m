@@ -23,8 +23,6 @@
 
     [self detectAppIdsWithIncremental:^(NSArray *appDictionaries) {
         NSLog(@"Incremental appDictionaries.count: %i", appDictionaries.count);
-        NSMutableArray *newAppDictionaries = [NSMutableArray arrayWithArray:self.detectedApps];
-        [newAppDictionaries addObjectsFromArray:appDictionaries];
     } withSuccess:^(NSArray *appDictionaries) {
         NSLog(@"Successful appDictionaries.count: %i", appDictionaries.count);
         NSData * JSONData = [NSJSONSerialization dataWithJSONObject:appDictionaries
