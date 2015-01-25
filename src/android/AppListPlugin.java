@@ -35,8 +35,6 @@ public class AppListPlugin extends CordovaPlugin {
                         appDetailsJson.put("processName", appInfo.processName);
                         appDetailsJson.put("packageName", appInfo.packageName);
 
-                        callbackContext.success(appInfo.packageName);
-
                         jsonArray.put(appDetailsJson);
 
                     } else {
