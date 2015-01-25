@@ -1,6 +1,6 @@
 package com.phonegap.plugins.applist;
 
-import android.util.Log
+import android.util.Log;
 import java.util.List;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -23,7 +23,7 @@ public class AppListPlugin extends CordovaPlugin {
         callbackContext.success("3");   
                 PackageManager packageManager = getPackageManager();
         callbackContext.success("4");   
-                List<ApplicationInfo> applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+                List<ApplicationInfo> applist = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
 
         callbackContext.success("5");   
                 JSONObject responseDetailsJson = new JSONObject();
@@ -36,7 +36,7 @@ public class AppListPlugin extends CordovaPlugin {
                     if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 1) {
         callbackContext.success("9");   
                         // Installed by user
-                        Log.w(WARN,appInfo.packageName)
+                        Log.w(WARN,appInfo.packageName);
         callbackContext.success("10");   
                         JSONObject appDetailsJson = new JSONObject();
         callbackContext.success("11");   
