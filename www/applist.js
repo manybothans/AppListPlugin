@@ -1,4 +1,5 @@
-AppListPlugin = {
+
+module.exports = {
     getAppList: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
@@ -8,4 +9,4 @@ AppListPlugin = {
             []
         ); 
     }
-}
+};

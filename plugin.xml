@@ -5,15 +5,16 @@
         <description>Get list of user-installed apps</description>
         <license>Apache 2.0</license>
         <keywords>cordova,device</keywords>
-        <js-module src="applist.js" name="AppListPlugin">
+        <asset src="www/applist.js" target="lib/hello.js"/>
+        <js-module src="www/applist.js" name="applist">
             <clobbers target="applist" />
         </js-module>
         <platform name="android">
-            <config-file target="config.xml" parent="/*">
+            <config-file target="res/xml/config.xml" parent="/*">
                 <feature name="AppListPlugin">
                     <param name="android-package" value="com.phonegap.plugins.applist.AppListPlugin"/>
                 </feature>
             </config-file>
-            <source-file src="AppListPlugin.java" target-dir="com/appstars/applist" />
+            <source-file src="src/android/AppListPlugin.java" target-dir="src/com/phonegap/plugins/plugin/" />
         </platform>
     </plugin>
