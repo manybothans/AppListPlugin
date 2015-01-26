@@ -19,11 +19,7 @@
 
     NSString* callbackId = [command callbackId];
 
-
-
-    [self detectAppIdsWithIncremental:^(NSArray *appDictionaries) {
-        NSLog(@"Incremental appDictionaries.count: %i", appDictionaries.count);
-    } withSuccess:^(NSArray *appDictionaries) {
+    [self detectAppIdsWithIncremental:nil withSuccess:^(NSArray *appIds) {
         NSLog(@"Successful appDictionaries.count: %i", appDictionaries.count);
         NSData * JSONData = [NSJSONSerialization dataWithJSONObject:appDictionaries
                                                     options:0
